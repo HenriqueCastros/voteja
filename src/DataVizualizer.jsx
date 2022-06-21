@@ -17,8 +17,8 @@ import {
   Marker,
 } from "react-simple-maps";
 
-import { getTotalVotes, getGeoMarkers } from "./data/datamanager";
-import { pieData, barData } from "./data/graphManager";
+import { getTotalVotes, getGeoMarkers } from "./data/dataController";
+import { pieData, barData } from "./data/graphController";
 
 ChartJS.register(
   ArcElement,

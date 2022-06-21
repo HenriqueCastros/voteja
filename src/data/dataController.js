@@ -1,17 +1,25 @@
+// Padrao comportamental 
+// Padrão é responsável por atribuir eventos do sistema a classes que que não 
+// estão relacionadas com interface com o usuário. Mais especificamente esse padrao
+// cuida dos dados que estao armazenados e de fazer processamento dos dados que o 
+// usuario insere
+
+import { createVote } from "./voteCreator";
+
 export function cadastrarEleitor(formData) {
   let users = localStorage.getItem("votes");
 
   if (!users) users = [];
   else users = JSON.parse(users);
 
-  users.push({
+  users.push(createVote({
     nome: formData.get("nome"),
     gender: formData.get("gender"),
     vote: formData.get("vote"),
     age: formData.get("age"),
     longitude: formData.get("longitude"),
     latitude: formData.get("latitude"),
-  });
+  }));
 
   localStorage.setItem("votes", JSON.stringify(users));
 }
@@ -52,20 +60,9 @@ export function createDB() {
   let users = localStorage.getItem("votes");
 
   if (!users) {
-    const voteOptions = ["lula", "bolsonaro", "outro", "nulo", "branco"];
-    const genderOptions = ["M", "F", "O"];
     const data = [];
     for (let i = 0; i < 20; i++) {
-      let longOff = Math.random() < 0.5 ? -1 : 1;
-      let latOff = Math.random() < 0.5 ? -1 : 1;
-      data.push({
-        nome: "",
-        gender: genderOptions[Math.floor(Math.random() * genderOptions.length)],
-        vote: voteOptions[Math.floor(Math.random() * voteOptions.length)],
-        age: "jovem",
-        longitude: -47.8919 + Math.random() * 10 * longOff,
-        latitude: -15.7975 + Math.random() * 5 * latOff,
-      });
+      data.push(createVote({}));
     }
     localStorage.setItem("votes", JSON.stringify(data));
   }

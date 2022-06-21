@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import DataVizualizer from "./DataVizualizer";
 import Background from "./Background";
 import FormVoto from "./FormVoto";
-import { setIsLogado, getIsLogado, createDB } from "./data/datamanager";
+import { setIsLogado, getIsLogado, createDB } from "./data/dataController";
 
 function App() {
   const [logged, setLogged] = React.useState();

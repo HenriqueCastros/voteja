@@ -14,7 +14,7 @@ import Radio from "@mui/material/Radio";
 import IconButton from "@mui/material/IconButton";
 import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { cadastrarEleitor } from "./data/datamanager";
+import { cadastrarEleitor } from "./data/dataController";
 
 const FormVoto = ({ handleVote, toggleModal }) => {
   const [gender, setGender] = React.useState("M");
