@@ -16,7 +16,7 @@ import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { cadastrarEleitor } from "./data/datamanager";
 
-const FormVoto = ({handleVote}) => {
+const FormVoto = ({ handleVote, toggleModal }) => {
   const [gender, setGender] = React.useState("M");
   const [vote, setVote] = React.useState("branco");
   const [age, setAge] = React.useState("jovem");
@@ -31,7 +31,7 @@ const FormVoto = ({handleVote}) => {
         });
       });
     }
-  }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -153,6 +153,7 @@ const FormVoto = ({handleVote}) => {
           type="submit"
           fullWidth
           variant="contained"
+          onClick={() => toggleModal(vote)}
           sx={{ mt: 3, mb: 2 }}
         >
           Votar
